@@ -24,3 +24,5 @@ Put the files in a folder with a .htaccess file for auth.
 From the mobile app (example here: PhoneTrack), specify the URL as https://your.server/folder/set.php?lat=%LAT&long=%LON&speed=%SPD&who=yourname
 On your website, for visualization use a link like https://your.server/folder/show.php?who=username1,username2
 If you want, specify 1 or many names.
+
+Below the folder with the PHP files, add the included ./data folder. In it should be one folder for each user, name being equal to the user name. In there, have a <username>.dat and <username>.png - the first will hold the last position, the other is the marker on the map (do customize it!). I've included a sample user called 'Atomium' :)
