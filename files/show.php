@@ -16,6 +16,10 @@
 <script>
 <?php
 
+// this file (c) 2021 peturdainn
+// MIT licensed
+// latest version at https://github.com/peturdainn/Longitude
+
 // some preparation: init vars and create empty arrays
 echo "var who = [];\n";
 echo "var lat = [];\n";
