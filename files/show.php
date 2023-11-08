@@ -6,17 +6,17 @@
     <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     <meta charset="utf-8">
     <!-- Here maps stuff -->
-    <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.0/mapsjs-ui.css?dp-version=1549984893" />
-    <script type="text/javascript" src="https://js.api.here.com/v3/3.0/mapsjs-core.js"></script>
-    <script type="text/javascript" src="https://js.api.here.com/v3/3.0/mapsjs-service.js"></script>
-    <script type="text/javascript" src="https://js.api.here.com/v3/3.0/mapsjs-ui.js"></script>
-    <script type="text/javascript" src="https://js.api.here.com/v3/3.0/mapsjs-mapevents.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.1/mapsjs-ui.css" />
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-core.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-service.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"></script>
     <!-- --- -->
 
 <script>
 <?php
 
-// this file (c) 2021 peturdainn
+// this file (c) 2023 peturdainn
 // MIT licensed
 // latest version at https://github.com/peturdainn/Longitude
 
@@ -112,31 +112,29 @@ echo "</table></center><hr>\n";
         function centermap(map)
         {
           map.setCenter({lat:latavg, lng:lonavg});
-          map.setZoom(13);
+          map.setZoom(zoomlevel);
         }
         function enableTrafficInfo(map) 
         {
             // Show traffic tiles
-            map.setBaseLayer(defaultLayers.normal.traffic);
+            map.addLayer(defaultLayers.vector.normal.traffic);
             // Enable traffic incidents layer
             //map.addLayer(defaultLayers.incidents);
         }
 
         var platform = new H.service.Platform({
-          app_id: 'your app id code here',
-          app_code: 'your app code here',
-          useHTTPS: true
+          apikey: 'your api key here',
         });
 
-        var pixelRatio = window.devicePixelRatio || 1;
-        var defaultLayers = platform.createDefaultLayers({
-          tileSize: pixelRatio === 1 ? 256 : 512,
-          ppi: pixelRatio === 1 ? undefined : 320
-        });
+        var defaultLayers = platform.createDefaultLayers();
 
         // create world map view
         var map = new H.Map(document.getElementById('mapdiv'),
-          defaultLayers.normal.map, {pixelRatio: pixelRatio});
+          defaultLayers.vector.normal.map, {
+          center: {lat:latavg, lng:lonavg},
+          zoom: zoomlevel, 
+          pixelRatio: window.devicePixelRatio || 1
+        });
 
         // make the map interactive
         // MapEvents enables the event system
