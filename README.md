@@ -15,8 +15,12 @@ Basically whatever easy free maps provider I could find.
 I must say Here maps is super fast in operation and easy to work with.
 
 ## Getting started
+The 'libre' version requires no API key or license
+The TomTom and Here.maps versions however, do! 
 You will need to sign up for a (free) developer key at Here maps and enter it in the map.php file.
 It's free for personal / low volume usage and so far I have never hit its limit. YMMV
+As of August 2025 the 100% free plan is gone and you need to get a base plan which is free for a limited set of requests but obviously needs payment info and will be billed when you request too much
+(which is why it is now migrated to maplibre
 This project can handle as many users as you like, and even show multiple together on the map.
 Make a folder for each user and edit the .PNG of the marker to be whatever avatar or pin you want.
 
