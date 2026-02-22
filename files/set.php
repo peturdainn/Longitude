@@ -2,10 +2,6 @@
 <?php
 //error_reporting('E_ALL');
 
-// this file (c) 2021 peturdainn
-// MIT licensed
-// latest version at https://github.com/peturdainn/Longitude
-
 $response = 200;
 
 // only try to store if minimum required items are present
@@ -51,7 +47,7 @@ if(isset($_REQUEST['lat']) && isset($_REQUEST['long']) && isset($_REQUEST['who']
     }
 	// now do logging
 	$handle2 = @fopen($logfile, "a");
-	if($handle != FALSE)
+	if($handle2 != FALSE)
 	{
 		fwrite($handle2, "\n");
 		fwrite($handle2, date('Y.m.d'));
