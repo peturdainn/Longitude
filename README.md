@@ -6,13 +6,15 @@ A method to pass location data from a mobile app like PhoneTrack to your webhost
 A method to visualize the location of one or more tracked people, using Here maps.
 No database, just PHP and plain text files for storage. Super simple, readable.
 Use Basic auth to shield this because this project doesn't deal with authentication.
-Shows traffic data because this thing was created so my wife could see where I was and if I got stuck in traffic on the way home from work. Yes.
+No longer shows traffic, which I wanted so my wife could see where I was and if I got stuck in traffic on the way home from work.
+If anybody knows a free trafficlayer that works with maplibre, drop me a message!
 
 ## Why?
 Long ago when Google stopped Latitude, I was pissed about that and a few hours later this replacement was born.
 Since then it hasn´t seen much love except for the migration from Google maps to TomTom and then Here maps.
 Basically whatever easy free maps provider I could find.
 I must say Here maps is super fast in operation and easy to work with.
+The current version is written for maplibre, the google/tomtom/here versions are not maintained.
 
 ## Getting started
 The 'libre' version requires no API key or license
