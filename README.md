@@ -30,3 +30,6 @@ On your website, for visualization use a link like https://your.server/folder/sh
 If you want, specify 1 or many names.
 
 Below the folder with the PHP files, add the included ./data folder. In it should be one folder for each user, name being equal to the user name. In there, have a <username>.dat and <username>.png - the first will hold the last position, the other is the marker on the map (do customize it!). I've included a sample user called 'Atomium' :)
+
+If there's a log folder in the user directory, all location updates will be logged and available via the history viewer (new in 0.3)
+
