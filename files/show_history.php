@@ -6,8 +6,7 @@
     <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     <meta charset="utf-8">
     <!-- OpenFreeMap and MapLibre stuff -->
-    <script src="https://unpkg.com/maplibre-gl/dist/maplibre-gl.js"></script>
-    <link href="https://unpkg.com/maplibre-gl/dist/maplibre-gl.css" rel="stylesheet" />    
+        <link href="https://unpkg.com/maplibre-gl/dist/maplibre-gl.css" rel="stylesheet" />    
     <!-- --- -->
     <style type="text/css">
         html, body {
@@ -182,14 +181,23 @@ echo "var bbox = [[".$lon_min.", ".$lat_min."], [".$lon_max.", ".$lat_max."]];\n
 echo "<hr><center><table><tr><td>";
 echo "<A HREF=\"show.php?who=".$who[0]."\">".$who[0]."</A>";
 echo "</td><td><form>";
+echo "<input type=\"hidden\" name=\"who\" value=".$who[0]." />";
+echo "<input type=\"hidden\" name=\"showday\" value=".date('Y-m-d', strtotime('-1 day', strtotime($showday)))." />";
+echo "<button>&lt;</button></form>";
+echo "</td><td><form>";
 echo "<input type=\"date\" name=\"showday\" value=".$showday." required />";
 echo "<input type=\"hidden\" name=\"who\" value=".$who[0]." />";
 echo "<button>GO</button></form>";
+echo "</td><td><form>";
+echo "<input type=\"hidden\" name=\"who\" value=".$who[0]." />";
+echo "<input type=\"hidden\" name=\"showday\" value=".date('Y-m-d', strtotime('+1 day', strtotime($showday)))." />";
+echo "<button>&gt;</button></form>";
 echo "</td></tr></table></center><hr>\n";
 ?>
     <div id="mapdiv" style="width: 100%; height: 90%; background: grey" />      
-    <script  type="text/javascript" charset="UTF-8" >
-
+    <script type="module">
+        import * as maplibregl from 'https://unpkg.com/maplibre-gl@^6.0.0/dist/maplibre-gl.mjs';
+		
         const map = new maplibregl.Map({
             style: 'https://tiles.openfreemap.org/styles/liberty',
             center: [lonavg, latavg],

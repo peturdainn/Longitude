@@ -6,7 +6,6 @@
     <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     <meta charset="utf-8">
     <!-- OpenFreeMap and MapLibre stuff -->
-    <script src="https://unpkg.com/maplibre-gl/dist/maplibre-gl.js"></script>
     <link href="https://unpkg.com/maplibre-gl/dist/maplibre-gl.css" rel="stylesheet" />    
     <!-- --- -->    
     <style type="text/css">
@@ -138,8 +137,9 @@ for ($i = 0; $i < $count; $i++)
 echo "</table></center><hr>\n";
 ?>
     <div id="mapdiv" style="width: 100%; height: 90%; background: grey" />      
-    <script  type="text/javascript" charset="UTF-8" >
-        
+    <script type="module">
+        import * as maplibregl from 'https://unpkg.com/maplibre-gl@^6.0.0/dist/maplibre-gl.mjs';
+		
         const map = new maplibregl.Map({
             style: 'https://tiles.openfreemap.org/styles/liberty',
             center: [lonavg, latavg],
@@ -166,6 +166,7 @@ echo "</table></center><hr>\n";
         };
 
         // show the requested users
+        let i = 0;
         for(i = 0; i < who.length; i++)
         {
           const el = document.createElement('div');
